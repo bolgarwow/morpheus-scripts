@@ -1,0 +1,13 @@
+---
+- name: Запуск команды hostnamectl
+  hosts: all
+  become: true
+  tasks:
+    - name: Выполнение команды hostnamectl
+      command: hostnamectl
+      register: hostnamectl_output
+
+    - name: Вывод результатов hostnamectl
+      debug:
+        var: hostnamectl_output.stdout_lines
+
